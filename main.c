@@ -4,13 +4,14 @@
 
 #include"text.h"
 #include"ftime.h"
+#include"dotpoints.h"
 
 int main()
 {
     int i,j;
     char text[50];
 
-    strcpy(text,"\nHello! Dear Qin \n\n\tGet ready for see it?\n");
+    strcpy(text,"\nHello! Dear Qin \n\n\tGet ready to see it?\n");
     fp(text);
     delay();
     strcpy(text,"\tPlease Maximize the window\n");
@@ -25,54 +26,31 @@ int main()
     getchar();//start
     spacesmall();
     line();
+
     //引用函数特效输出字符图案
-/*Print "Dear"*/
     spacesmall();
-/*1*/printf("************   \n");delay();
-/*2*/printf(" **        *** \n");delay();
-/*3*/printf(" **          **\n");delay();
-/*4*/printf(" **            *      *********         **********    ***  ****\n");delay();
-/*5*/printf(" **            *    ***       **     ***         **    ** **   \n");delay();
-/*6*/printf(" **            *   **           *    *           **    ***     \n");delay();
-/*7*/printf(" **            *   *            **              ***    **      \n");delay();
-/*8*/printf(" **            *   ***************      ***********    **      \n");delay();
-/*9*/printf(" **            *   **                ***          *    **      \n");delay();
-/*0*/printf(" **          **     **               *           **    **      \n");delay();
-/*1*/printf(" **        ***       ***      ***     **       ****    **      \n");delay();
-/*2*/printf("************           ********        ********   **  ****     \n");delay();
-/*Print 'L'*/
-/*Print 'i'*/
+
+    dot_dear();/*Print "Dear"*/
     spacesmall();
-/*1*/printf("****                 ** \n");delay();
-/*2*/printf(" **                  ** \n");delay();
-/*3*/printf(" **                     \n");delay();
-/*4*/printf(" **                 *** \n");delay();
-/*5*/printf(" **                  ** \n");delay();
-/*6*/printf(" **                  ** \n");delay();
-/*7*/printf(" **                  ** \n");delay();
-/*8*/printf(" **                  ** \n");delay();
-/*9*/printf(" **                  ** \n");delay();
-/*0*/printf(" **            *     ** \n");delay();
-/*1*/printf(" ***          **     ** \n");delay();
-/*2*/printf("****************    ****\n");delay();
-/*Print 'Q'*/
-/*Print 'i'*/
-/*Print 'n'*/
+
+    dot_li();/*Print "Li"*/
     spacesmall();
-/*1*/printf("    *********        **\n");delay();
-/*2*/printf("  **         **      **\n");delay();
-/*3*/printf(" **           **       \n");delay();
-/*4*/printf(" *            **    ***           *******    \n");delay();
-/*5*/printf(" *             *     **     *** **      ***  \n");delay();
-/*6*/printf(" *             *     **       **          ** \n");delay();
-/*7*/printf(" **           **     **       **          ** \n");delay();
-/*8*/printf(" **           **     **       **          ** \n");delay();
-/*9*/printf(" **  **      **      **       **          ** \n");delay();
-/*0*/printf("   **********        **       **          ** \n");delay();
-/*1*/printf("      **             **       **          ** \n");delay();
-/*2*/printf("       ****         ****     ****        ****\n");delay();
+
+    dot_qin();/*Print "Qin"*/
     spacebig();
-    line();
+
+    /*Print "I LOVE YOU"*/
+
+
+    /*Print "See here"*/
+    dot_see_here();
+    spacesmall();
+
+    /*Print "↓ ↓ ↓"*/
+    dot_down();
+    spacesmall();
+
+    line2();
 
     time_t timep;
     struct tm *p;
@@ -83,7 +61,7 @@ int main()
     ** p = gmtime(&timep);
 	** 把日期和时间转换为格林威治(GMT)时间的函数
 	*/
-	strcpy(text,"\nNow the time is:\n");
+	strcpy(text,"\nNow the time of this moment is:\n\n");
 	fp(text);delay();
     printf("\t%d年\t", 1900+p->tm_year);delay();
     printf("%d月", 1+p->tm_mon);delay();
@@ -116,7 +94,7 @@ int main()
 /*show the time our fall in love*/
     loop();
     spacesmall();
-    strcpy(text,"The time we have been boyfriend/girlfriend is:\n");
+    strcpy(text,"The time we have been boyfriend/girlfriend is:\n\n");
     fp(text);
     printf("\t%d年\t",love.year);delay();
     printf("%d月",love.mon);delay();
@@ -174,8 +152,14 @@ int main()
     spacesmall();
     delay();
     //printf("\tcaculating");
-    strcpy(text,"\tcaculating\0");
+    strcpy(text,"\tCaculating\0");
     fp(text);
+    for(i=0;i<3;i++){
+        putchar('.');
+        for(j=0;j<5;j++){
+            delay();
+        }
+    }
 
     loop();
 
@@ -195,18 +179,17 @@ int main()
     spacesmall();
     line();
 
-/*Print 'Marry'*/
-/*Print 'Me'*/
+/*Print "Will"*/
+/*Print "You"*/
+/*Print "Marry"*/
+/*Print "Me"*/
 /*Print '?'*/
 
-/*Print "I YOU"*/
 /*Print "POSTED"*/
 /*Print "BY"*/
 /*Print "YOUR"*/
 /*Print "DEAR"*/
 /*Print "ER QUE"*/
-
-
 
     spacesmall();
 /*打印爱心*/
@@ -231,7 +214,7 @@ int main()
     }
 
     spacesmall();
-    strcpy(text,"\tPress Enter twice to continue\n");
+    strcpy(text,"\tPress Enter twice to see again.\n");
     fp(text);
     strcpy(text,"\tPress '!' and Enter to close me ;-)\n");
     fp(text);

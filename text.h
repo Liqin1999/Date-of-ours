@@ -12,6 +12,15 @@ void line()
     }
     putchar('\n');
 }
+void line2()
+{
+    int i;
+    for(i=0;i<50;i++){
+        printf("*");
+    }
+    delay();
+    putchar('\n');
+}
 void spacebig()
 {
     int i;
