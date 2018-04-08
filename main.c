@@ -1,100 +1,103 @@
-#include <stdio.h>
-#include <string.h>
-#include <time.h>
+#include<stdio.h>
+#include<string.h>
+#include<time.h>
 
-void line()
-{
-    int i;
-    for(i=0;i<40;i++){
-        printf("*");delay();
-    }
-    putchar('\n');
-}
-void spacebig()
-{
-    printf("\n\n\n\n\n");
-}
-void spacesmall()
-{
-    printf("\n\n");
-}
-void delay()
-{
-    int i,j,k,t=300;
-    for(i=0;i<t;i++){
-        for(j=0;j<t;j++){
-            for(k=0;k<t;k++){
-                //null
-            }
-        }
-    }
-}
-void weekday(int temp)
-{
-    switch(temp){
-        case 0:printf("\t周日/Sunday");break;
-        case 1:printf("\t周一/Monday");break;
-        case 2:printf("\t周二/Tuesday");break;
-        case 3:printf("\t周三/Wednesday");break;
-        case 4:printf("\t周四/Thursday");break;
-        case 5:printf("\t周五/Friday");break;
-        case 6:printf("\t周六/Saturday");break;
-    }
-}
-int yeartype(int a)//判断是否闰年，返回值为一年中的天数
-{
-    int n;
-    if( (a%4==0 && a%400==0)||a%400==0){
-        n=366;
-    }
-    else{
-        n=365;
-    }
-    return n;
-}
-float f(float x, float y, float z)
-{
-    float a;
-    a = x * x + 9.0f / 4.0f * y * y + z * z - 1;
-    return a * a * a - x * x * z * z * z - 9.0f / 80.0f * y * y * z * z * z;
-}
+#include"text.h"
+#include"ftime.h"
 
-
-float h(float x, float z)
-{
-    float y;
-    for ( y = 1.0f; y >= 0.0f; y -= 0.001f)
-        if (f(x, y, z) <= 0.0f)
-            return y;
-    return 0.0f;
-}
 int main()
 {
+    int i,j;
+    char text[50];
+
+    strcpy(text,"\nHello! Dear Qin \n\n\tGet ready for see it?\n");
+    fp(text);
+    delay();
+    strcpy(text,"\tPlease Maximize the window\n");
+    fp(text);
+    strcpy(text,"\tand press Enter to star our stories:\n");
+    fp(text);
+    spacesmall();
+    delay();
+    strcpy(text,"\tQin:I see and I've been ready:");
+    fp(text);
+
+    getchar();//start
+    spacesmall();
+    line();
+    //引用函数特效输出字符图案
+/*Print "Dear"*/
+    spacesmall();
+/*1*/printf("************   \n");delay();
+/*2*/printf(" **        *** \n");delay();
+/*3*/printf(" **          **\n");delay();
+/*4*/printf(" **            *      *********         **********    ***  ****\n");delay();
+/*5*/printf(" **            *    ***       **     ***         **    ** **   \n");delay();
+/*6*/printf(" **            *   **           *    *           **    ***     \n");delay();
+/*7*/printf(" **            *   *            **              ***    **      \n");delay();
+/*8*/printf(" **            *   ***************      ***********    **      \n");delay();
+/*9*/printf(" **            *   **                ***          *    **      \n");delay();
+/*0*/printf(" **          **     **               *           **    **      \n");delay();
+/*1*/printf(" **        ***       ***      ***     **       ****    **      \n");delay();
+/*2*/printf("************           ********        ********   **  ****     \n");delay();
+/*Print 'L'*/
+/*Print 'i'*/
+    spacesmall();
+/*1*/printf("****                 ** \n");delay();
+/*2*/printf(" **                  ** \n");delay();
+/*3*/printf(" **                     \n");delay();
+/*4*/printf(" **                 *** \n");delay();
+/*5*/printf(" **                  ** \n");delay();
+/*6*/printf(" **                  ** \n");delay();
+/*7*/printf(" **                  ** \n");delay();
+/*8*/printf(" **                  ** \n");delay();
+/*9*/printf(" **                  ** \n");delay();
+/*0*/printf(" **            *     ** \n");delay();
+/*1*/printf(" ***          **     ** \n");delay();
+/*2*/printf("****************    ****\n");delay();
+/*Print 'Q'*/
+/*Print 'i'*/
+/*Print 'n'*/
+    spacesmall();
+/*1*/printf("    *********        **\n");delay();
+/*2*/printf("  **         **      **\n");delay();
+/*3*/printf(" **           **       \n");delay();
+/*4*/printf(" *            **    ***           *******    \n");delay();
+/*5*/printf(" *             *     **     *** **      ***  \n");delay();
+/*6*/printf(" *             *     **       **          ** \n");delay();
+/*7*/printf(" **           **     **       **          ** \n");delay();
+/*8*/printf(" **           **     **       **          ** \n");delay();
+/*9*/printf(" **  **      **      **       **          ** \n");delay();
+/*0*/printf("   **********        **       **          ** \n");delay();
+/*1*/printf("      **             **       **          ** \n");delay();
+/*2*/printf("       ****         ****     ****        ****\n");delay();
+    spacebig();
+    line();
+
     time_t timep;
     struct tm *p;
     time(&timep);
     p =localtime(&timep);
-
 	/*
 	** 此函数获得的tm结构体的时间，是已经进行过时区转化为本地时间
     ** p = gmtime(&timep);
 	** 把日期和时间转换为格林威治(GMT)时间的函数
 	*/
-	printf("\nNow the time is:\n");delay();
+	strcpy(text,"\nNow the time is:\n");
+	fp(text);delay();
     printf("\t%d年\t", 1900+p->tm_year);delay();
     printf("%d月", 1+p->tm_mon);delay();
     printf("%d日", p->tm_mday);delay();
     int w=p->tm_wday;
     weekday(w);delay();//函数确定输出周几，英文单词
-    putchar('\n');
+    putchar('\n');delay();
     printf("\t今年的第 %d天\t", p->tm_yday);delay();//这一年的第几天
-    putchar('\n');
+    putchar('\n');delay();
     printf("\t%d点", p->tm_hour);delay();
     printf(" %d分", p->tm_min);delay();
     printf(" %d秒", p->tm_sec);delay();
     printf("\tIsdst: %d\t", p->tm_isdst);//夏令时
-    spacesmall();delay();
-    line();
+    spacesmall();
 
 /*Identify struct of our love*/
     struct lovetime{
@@ -110,10 +113,24 @@ int main()
     love.year=2018;love.mon=1;love.day=1;
     love.hour=0;love.min=10;love.sec=0;
 
+/*show the time our fall in love*/
+    loop();
+    spacesmall();
+    strcpy(text,"The time we have been boyfriend/girlfriend is:\n");
+    fp(text);
+    printf("\t%d年\t",love.year);delay();
+    printf("%d月",love.mon);delay();
+    printf("%d日",love.day);delay();
+
+    putchar('\n');delay();
+    printf("\t%d点",love.hour);delay();
+    printf(" %d分",love.min);delay();
+    printf(" %d秒",love.sec);delay();
+    spacesmall();
+
 /*Calculating dates*/
     struct lovetime last;
     last.year=p->tm_year-love.year+1900;
-
 
     last.mon=p->tm_mon-love.mon+1;
     if(last.year>0){
@@ -149,34 +166,28 @@ int main()
     }
 
 /*Start nue dog */
+    loop();
     spacesmall();
     //printf("The time we fall in love lasts:\n\n");
-    char text[50];
-    int i,j;
-    strcpy(text,"The time we fall in love lasts:\n");
-    for(i=0;text[i]!='\0';i++){
-        printf("%c",text[i]);
-        delay();
-    }
+    strcpy(text,"The period we fall in love lasts:\n");
+    fp(text);
     spacesmall();
     delay();
-    printf("\tcaculating");
-    for(i=0;i<5;i++){
-        delay();
-    }
-    for(i=0;i<3;i++){
-        putchar('.');
-        for(j=0;j<5;j++){
-            delay();
-        }
-    }
+    //printf("\tcaculating");
+    strcpy(text,"\tcaculating\0");
+    fp(text);
+
+    loop();
+
     spacesmall();
     if(last.year==0){
-        printf("\tLess than 1 year\n");
+        strcpy(text,"\tLess than 1 year\n");
+        fp(text);
     }
     else{
         printf("\t%d\tyears\n",last.year);
     }
+    delay();
     printf("\t%d\tmonths\n",last.mon);delay();
     printf("\t%d\tdays\n",last.day);delay();
     printf("\t%d\thours\n",last.hour);delay;
@@ -184,16 +195,19 @@ int main()
     spacesmall();
     line();
 
-/*Print 'L'*/
-/*Print 'i'*/
-    spacesmall();
-/*Print 'Q'*/
-/*Print 'i'*/
-/*Print 'n'*/
-    spacesmall();
 /*Print 'Marry'*/
 /*Print 'Me'*/
 /*Print '?'*/
+
+/*Print "I YOU"*/
+/*Print "POSTED"*/
+/*Print "BY"*/
+/*Print "YOUR"*/
+/*Print "DEAR"*/
+/*Print "ER QUE"*/
+
+
+
     spacesmall();
 /*打印爱心*/
     float z,x,v,y0,ny,nx,nz,nd,d;
@@ -216,6 +230,22 @@ int main()
         putchar('\n');delay();
     }
 
-	return 0;
+    spacesmall();
+    strcpy(text,"\tPress Enter twice to continue\n");
+    fp(text);
+    strcpy(text,"\tPress '!' and Enter to close me ;-)\n");
+    fp(text);
+
+    spacesmall();
+
+    getchar();
+    if(getchar()=='!'){
+        return 0;
+    }
+    else{
+        line();
+        spacesmall();
+        return main();
+    }
 }
 
