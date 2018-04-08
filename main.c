@@ -47,8 +47,11 @@ int main()
     spacesmall();
 
     /*Print "¡ý ¡ý ¡ý"*/
-    dot_down();
-    spacesmall();
+    for(i=0;i<3;i++){
+        dot_down();
+        spacesmall();
+    }
+    spacebig();
 
     line2();
 
@@ -214,6 +217,10 @@ int main()
     }
 
     spacesmall();
+    strcpy(text,"\tThis program is shot\n");
+    fp(text);
+    strcpy(text,"\tBut our love never fade\n");
+    fp(text);
     strcpy(text,"\tPress Enter twice to see again.\n");
     fp(text);
     strcpy(text,"\tPress '!' and Enter to close me ;-)\n");
