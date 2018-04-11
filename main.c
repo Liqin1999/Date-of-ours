@@ -216,10 +216,12 @@ int main()
         putchar('\n');delay();
     }
 
-    spacesmall();
+    //dot_hj();
+
+    spacebig();
     strcpy(text,"\tThis program is shot\n");
     fp(text);
-    strcpy(text,"\tBut our love never fade\n");
+    strcpy(text,"\tBut the love between us is never faded!\n\n");
     fp(text);
     strcpy(text,"\tPress Enter twice to see again.\n");
     fp(text);
