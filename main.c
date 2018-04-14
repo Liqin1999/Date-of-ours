@@ -16,11 +16,11 @@ int main()
     delay();
     strcpy(text,"\tPlease Maximize the window\n");
     fp(text);
-    strcpy(text,"\tand press Enter to star our stories:\n");
+    strcpy(text,"\tand press Enter to star our stories ;)\n");
     fp(text);
     spacesmall();
     delay();
-    strcpy(text,"\tQin:I see and I've been ready:");
+    strcpy(text,"\tQin:I see and I've been ready ;)");
     fp(text);
 
     getchar();//start
@@ -159,9 +159,7 @@ int main()
     fp(text);
     for(i=0;i<3;i++){
         putchar('.');
-        for(j=0;j<5;j++){
-            delay();
-        }
+        loop();
     }
 
     loop();
@@ -179,7 +177,12 @@ int main()
     printf("\t%d\tdays\n",last.day);delay();
     printf("\t%d\thours\n",last.hour);delay;
     printf("\t%d\tseconds\n",last.sec);delay();
+    putchar('\n');
+    printf("\t这是我们的第%d个一百天\n",last.day/100);delay();
     spacesmall();
+
+    printf("Press Enter to continue.\n");
+    getchar();
     line();
 
 /*Print "Will"*/
