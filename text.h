@@ -7,18 +7,9 @@
 void line()
 {
     int i;
-    for(i=0;i<50;i++){
-        printf("*");delay();
+    for(i=0;i<30;i++){
+        printf("_");delay();
     }
-    putchar('\n');
-}
-void line2()
-{
-    int i;
-    for(i=0;i<50;i++){
-        printf("*");
-    }
-    delay();
     putchar('\n');
 }
 void spacebig()

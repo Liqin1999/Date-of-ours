@@ -6,48 +6,48 @@
 #endif // DOTPOINTS_H_INCLUDED
 void dot_3()
 {
-/*1*/printf("     *******                \n");delay();
-/*2*/printf("   **       **            \n");delay();
-/*3*/printf("   *         **             \n");delay();
-/*4*/printf("             *         \n");delay();
-/*5*/printf("           **           \n");delay();
-/*6*/printf("        ****               \n");delay();
-/*7*/printf("         ***          \n");delay();
-/*8*/printf("           **            \n");delay();
-/*9*/printf("             *                \n");delay();
-/*0*/printf("   *         **         \n");delay();
-/*1*/printf("   **       **            \n");delay();
-/*2*/printf("     *******             \n");delay();
+/*1*/printf("     *******   \n");delay();
+/*2*/printf("   **       ** \n");delay();
+/*3*/printf("   *         **\n");delay();
+/*4*/printf("             * \n");delay();
+/*5*/printf("           **  \n");delay();
+/*6*/printf("        ****   \n");delay();
+/*7*/printf("         ***   \n");delay();
+/*8*/printf("           **  \n");delay();
+/*9*/printf("             * \n");delay();
+/*0*/printf("   *         **\n");delay();
+/*1*/printf("   **       ** \n");delay();
+/*2*/printf("     *******   \n");delay();
 }
 void dot_2()
 {
-/*1*/printf("      ******                \n");delay();
-/*2*/printf("    **     ***            \n");delay();
-/*3*/printf("   **        **             \n");delay();
-/*4*/printf("            **         \n");delay();
-/*5*/printf("           **           \n");delay();
-/*6*/printf("         ***               \n");delay();
-/*7*/printf("       ***            \n");delay();
-/*8*/printf("      **                 \n");delay();
-/*9*/printf("     **                       \n");delay();
-/*0*/printf("    ***                 \n");delay();
-/*1*/printf("   ***********            \n");delay();
-/*2*/printf("   ***********           \n");delay();
+/*1*/printf("      ******   \n");delay();
+/*2*/printf("    **     *** \n");delay();
+/*3*/printf("   **        **\n");delay();
+/*4*/printf("            ** \n");delay();
+/*5*/printf("           **  \n");delay();
+/*6*/printf("         **    \n");delay();
+/*7*/printf("        **     \n");delay();
+/*8*/printf("       **      \n");delay();
+/*9*/printf("     **        \n");delay();
+/*0*/printf("    **         \n");delay();
+/*1*/printf("   **          \n");delay();
+/*2*/printf("  *************\n");delay();
 }
 void dot_1()
 {
-/*1*/printf("       ****                 \n");delay();
-/*2*/printf("     ******               \n");delay();
-/*3*/printf("    ***  **                 \n");delay();
-/*4*/printf("         **            \n");delay();
-/*5*/printf("         **             \n");delay();
-/*6*/printf("         **                \n");delay();
-/*7*/printf("         **           \n");delay();
-/*8*/printf("         **              \n");delay();
-/*9*/printf("         **                   \n");delay();
-/*0*/printf("         **             \n");delay();
-/*1*/printf("         **               \n");delay();
-/*2*/printf("         **              \n");delay();
+/*1*/printf("       ****\n");delay();
+/*2*/printf("     ******\n");delay();
+/*3*/printf("    ***  **\n");delay();
+/*4*/printf("         **\n");delay();
+/*5*/printf("         **\n");delay();
+/*6*/printf("         **\n");delay();
+/*7*/printf("         **\n");delay();
+/*8*/printf("         **\n");delay();
+/*9*/printf("         **\n");delay();
+/*0*/printf("         **\n");delay();
+/*1*/printf("         **\n");delay();
+/*2*/printf("         **\n");delay();
 }
 void dot_dear()
 {
@@ -70,7 +70,7 @@ void dot_li()
 /*2*/printf("  **********************       **                  ** \n");delay();
 /*3*/printf("          ******               **                     \n");delay();
 /*4*/printf("        *** ** ***             **                 *** \n");delay();
-/*5*/printf("    ****    **    ****         **                     \n");delay();
+/*5*/printf("    ****    **    ****         **                  ** \n");delay();
 /*6*/printf(" ***                  ***      **                  ** \n");delay();
 /*7*/printf("        **********             **                  ** \n");delay();
 /*8*/printf("             **                **                  ** \n");delay();
@@ -81,9 +81,9 @@ void dot_li()
 }
 void dot_qin()
 {
-/*1*/printf(" ***********  ***********         *********        **                      \n");delay();
-/*2*/printf("      **          **            **         **      **                      \n");delay();
-/*3*/printf("   ********     ********       **           **                             \n");delay();
+/*1*/printf(" ***********  ***********         *********        **\n");delay();
+/*2*/printf("      **          **            **         **      **\n");delay();
+/*3*/printf("   ********     ********       **           **       \n");delay();
 /*4*/printf("      **          **           *            **    ***           *******    \n");delay();
 /*5*/printf(" **********   ***********      *             *     **     *** **      ***  \n");delay();
 /*6*/printf("           ******              *             *     **       **          ** \n");delay();
