@@ -24,8 +24,15 @@ int main()
     fp(text);
 
     getchar();//start
+
     spacesmall();
-    line();
+    dot_3();
+
+    spacesmall();
+    dot_2();
+
+    spacesmall();
+    dot_1();
 
     //引用函数特效输出字符图案
     spacesmall();
