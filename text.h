@@ -8,7 +8,8 @@ void line()
 {
     int i;
     for(i=0;i<30;i++){
-        printf("_");delay();
+        printf("_");
+        delay();
     }
     putchar('\n');
 }

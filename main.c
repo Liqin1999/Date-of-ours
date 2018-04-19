@@ -8,7 +8,7 @@
 
 int main()
 {
-    int i,j;
+    int i;
     char text[50];
 
     strcpy(text,"\nHello! Dear Qin\n\n\tGet ready to see it?\n");
@@ -195,7 +195,7 @@ int main()
     delay();
     printf("\t%d\tmonths\n",last.mon);delay();
     printf("\t%d\tdays\n",last.day);delay();
-    printf("\t%d\thours\n",last.hour);delay;
+    printf("\t%d\thours\n",last.hour);delay();
     printf("\t%d\tseconds\n",last.sec);delay();
     spacesmall();
 
@@ -206,14 +206,14 @@ int main()
     printf("\t这是我们的第%d个一百天\n",hundreds);delay();
     printf("\t距离下一个一百天还有%d天\n",(hundreds+1)*100-last.day);//距离下一个一百天还有多少天
     if(last.day+20>=(hundreds+1)*days){//如果即将到达下一个一百天，就输出提示信息
-        printf("\t//马上就是第%d个一百天啦 (*≧︶≦))(￣▽￣* )ゞ\n");delay();
+        printf("\t//马上就是第%d个一百天啦 (*≧︶≦))(￣▽￣* )ゞ\n",hundreds+1);delay();
     }
     spacesmall();
 
     line();
 
     spacesmall();
-    strcpy(text,"\tI am DEEPLY love you, my dear 琴儿.\n");
+    strcpy(text,"\tI am DEEPLY love you, my dear 琴儿.\n\n");
     fp(text);
     strcpy(text,"\tAnd I will be very sad\n\tif we are not together. :(\n\n");
     fp(text);
@@ -290,7 +290,7 @@ int main()
     spacesmall();
 
     char end=getchar();
-    if(end=='!'||end=='！'){
+    if(end=='!'){
         dot_doge();
         return 0;
     }
