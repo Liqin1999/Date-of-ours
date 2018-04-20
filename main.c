@@ -3,6 +3,7 @@
 #include<time.h>
 
 #include"text.h"
+#include"textuality.h"
 #include"ftime.h"
 #include"dotpoints.h"
 
@@ -11,31 +12,17 @@ int main()
     int i;
     char text[50];
 
-    strcpy(text,"\nHello! Dear Qin\n\n\tGet ready to see it?\n");
-    fp(text);
-    delay();
 
-    strcpy(text,"\tPlease Maximize the window\n");
-    fp(text);
-    strcpy(text,"\tand press Enter to star our stories ;)\n");
-    fp(text);
-    strcpy(text,"\n\t( Press 'Windows + up' or click that bottom to Maximize the window)\n");
-    fp(text);
-    spacesmall();
-    delay();
-    strcpy(text,"\tQin:I see and I've been ready ;)");
-    fp(text);
+//!展示开头信息
 
-    getchar();//start
+    text_start();//开头的文本
 
-    spacebig();
-    dot_3();
-    spacesmall();
-    dot_2();
-    spacesmall();
-    dot_1();
+    system("pause");//start
 
-    //引用函数特效输出字符图案
+
+//!引用函数特效输出字符图案
+
+    cutdown();
     spacebig();
 
     dot_dear();/*Print "Dear"*/
@@ -64,13 +51,8 @@ int main()
     line();
 
 /**/
-//开始展示信息
+//!开始展示信息
 /**/
-    time_t timep;
-    struct tm *p;
-    time(&timep);
-    p =localtime(&timep);
-
 
 /*Identify struct of our love*/
     struct lovetime{
@@ -82,9 +64,15 @@ int main()
         int sec;
     }love;
 
-/*Identify the moment we fall in love with each other*/
+//! Identify the moment we fall in love with each other
     love.year=2018;love.mon=1;love.day=1;
     love.hour=0;love.min=10;love.sec=0;
+
+//! 计算love time的时间戳
+    //int time_start=timestamp(love);
+    //printf("%d",time_start);
+
+
 
 /*show the time our fall in love*/
     spacesmall();
@@ -107,6 +95,12 @@ int main()
 	*/
 	strcpy(text,"\nNow the time of this moment is:\n\n");
 	fp(text);delay();
+
+    time_t timep;
+    struct tm *p;
+    time(&timep);
+    p =localtime(&timep);
+
     printf("\t%d年\t", 1900+p->tm_year);delay();
     printf("%d月", 1+p->tm_mon);delay();
     printf("%d日", p->tm_mday);delay();
@@ -165,8 +159,9 @@ int main()
         last.sec=(p->tm_sec-love.sec)+last.min*60;
     }
 
+
 /**/
-//Start nue dog
+//!Start nue dog
 /**/
     spacesmall();
     //printf("The time we fall in love lasts:\n\n");
@@ -199,7 +194,7 @@ int main()
     printf("\t%d\tseconds\n",last.sec);delay();
     spacesmall();
 
-//Show more informations
+//!Show more informations
     strcpy(text,"What's more...\n");
     fp(text);
     spacesmall();
@@ -211,19 +206,12 @@ int main()
     spacesmall();
 
     line();
-
-    spacesmall();
-    strcpy(text,"\tI am DEEPLY love you, my dear 琴儿.\n\n");
-    fp(text);
-    strcpy(text,"\tAnd I will be very sad\n\tif we are not together. :(\n\n");
-    fp(text);
-    strcpy(text,"\tSo I will do my best to marry you!\n");
-    fp(text);
-    strcpy(text,"\n\tPress Enter to continue. :)\n");
-    fp(text);
     spacesmall();
 
-    getchar();
+    text_mid();//中间的文本
+
+    spacesmall();
+    system("pause");//continue
 
     spacesmall();
     line();
@@ -241,7 +229,8 @@ int main()
 /*Print "ER QUE"*/
 
     spacesmall();
-/*打印爱心*/
+
+//!打印爱心
     float z,x,v,y0,ny,nx,nz,nd,d;
     for ( z = 1.5f; z > -1.5f; z -= 0.05f) {
         for ( x = -1.5f; x < 1.5f; x += 0.025f) {
@@ -262,30 +251,9 @@ int main()
         putchar('\n');delay();
     }
 
-    //dot_hj();
-
     spacebig();
-    strcpy(text,"\tSurely someday,\n\tI'll tread the rainbow auspicious clouds to marry you.\n\n");
-    fp(text);
-    strcpy(text,"\t总有一天\n\t我会踏着七彩祥云\n\t去娶你 :)\n");
-    fp(text);
 
-    spacesmall();
-
-    strcpy(text,"\tRemember\n\tbe right here waiting for me!\n");
-    fp(text);
-    strcpy(text,"\t一定不要忘了，\n\t在这儿等我 :)\n");
-    fp(text);
-    spacesmall();
-
-    strcpy(text,"\tThis program is shot\n");
-    fp(text);
-    strcpy(text,"\tBut the love between us is never faded!\n\n");
-    fp(text);
-    strcpy(text,"\tPress Enter twice to see again.\n");
-    fp(text);
-    strcpy(text,"\tPress '!' and Enter to close me ;-)\n");
-    fp(text);
+    text_end();//结尾文本
 
     spacesmall();
 
@@ -300,4 +268,3 @@ int main()
         return main();
     }
 }
-

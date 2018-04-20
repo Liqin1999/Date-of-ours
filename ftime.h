@@ -45,3 +45,17 @@ void loop()
         delay();
     }
 }
+void  cutdown()
+{
+    spacebig();
+    dot_3();
+    spacesmall();
+    dot_2();
+    spacesmall();
+    dot_1();
+}
+
+//int timestamp(struct a)
+//{
+    //int time_start=(a.min+(a.hour+(a.day+(a.year-2000)yeartype(a.year)/*days*/)*24/*h*/)*60/*min*/)*60/*s*/
+//}

@@ -37,6 +37,7 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="text.h" />
+		<Unit filename="textuality.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
