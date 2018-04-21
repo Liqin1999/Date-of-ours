@@ -50,7 +50,7 @@ void text_end()
 
     strcpy(text,"\tRemember\n\tbe right here waiting for me!\n");
     fp(text);
-    strcpy(text,"\t一定不要忘了，\n\t在这儿等我 :)\n");
+    strcpy(text,"\t一定不要忘了，\n\t在这里等我 :)\n");
     fp(text);
     spacesmall();
 
@@ -64,3 +64,4 @@ void text_end()
     strcpy(text,"\n\tPress '#' and Enter to close me ;-)\n");
     fp(text);
 }
+

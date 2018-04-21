@@ -51,3 +51,25 @@ float h(float x, float z)
             return y;
     return 0.0f;
 }
+void heart()
+{
+    float z,x,v,y0,ny,nx,nz,nd,d;
+    for ( z = 1.5f; z > -1.5f; z -= 0.05f) {
+        for ( x = -1.5f; x < 1.5f; x += 0.025f) {
+            v = f(x, 0.0f, z);
+            if (v <= 0.0f){
+                y0 = h(x, z);
+                ny = 0.01f;
+                nx = h(x + ny, z) - y0;
+                nz = h(x, z + ny) - y0;
+                nd = 1.0f / sqrtf(nx * nx + ny * ny + nz * nz);
+                d = (nx + ny - nz) * nd * 0.5f + 0.5f;
+                putchar(".:-=+*#%@"[(int)(d * 5.0f)]);
+            }
+            else{
+                putchar(' ');
+            }
+        }
+        putchar('\n');delay();
+    }
+}

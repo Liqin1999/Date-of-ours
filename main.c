@@ -3,7 +3,6 @@
 #include<time.h>
 #include <Windows.h>
 
-
 #include"text.h"
 #include"textuality.h"
 #include"ftime.h"
@@ -27,13 +26,10 @@ int main()
 
     cutdown();
     spacebig();
-
     dot_dear();/*Print "Dear"*/
     spacesmall();
-
     dot_li();/*Print "Li"*/
     spacesmall();
-
     dot_qin();/*Print "Qin"*/
     spacebig();
 
@@ -88,7 +84,6 @@ int main()
     printf("\t%d年\t",love.year);delay();
     printf("%d月",love.mon);delay();
     printf("%d日",love.day);delay();
-
     putchar('\n');delay();
     printf("\t%d点",love.hour);delay();
     printf(" %d分",love.min);delay();
@@ -116,7 +111,7 @@ int main()
     weekday(w);delay();
 
     putchar('\n');delay();
-    printf("\t今年的第 %d天\t", p->tm_yday);delay();//这一年的第几天
+    printf("\t今年的第 %d天\t", p->tm_yday+1);delay();//!这一年的第几天，算法局限，补上差的一天
     putchar('\n');delay();
     printf("\t%d点", p->tm_hour);delay();
     printf(" %d分", p->tm_min);delay();
@@ -136,7 +131,7 @@ int main()
     //计算天数
     int days,hundreds;
     days=yeartype(1900+p->tm_year);//days变量运算，判断是否闰年
-    last.day=p->tm_yday;
+    last.day=p->tm_yday+1;//!算法局限，补上差的一天
     if(last.year>0){
         last.day+=last.year*days;//引入变量days=365 or days=366，分别计算平年闰年的天数
     }
@@ -239,26 +234,9 @@ int main()
 
     spacesmall();
 
+
 //!打印爱心
-    float z,x,v,y0,ny,nx,nz,nd,d;
-    for ( z = 1.5f; z > -1.5f; z -= 0.05f) {
-        for ( x = -1.5f; x < 1.5f; x += 0.025f) {
-            v = f(x, 0.0f, z);
-            if (v <= 0.0f){
-                y0 = h(x, z);
-                ny = 0.01f;
-                nx = h(x + ny, z) - y0;
-                nz = h(x, z + ny) - y0;
-                nd = 1.0f / sqrtf(nx * nx + ny * ny + nz * nz);
-                d = (nx + ny - nz) * nd * 0.5f + 0.5f;
-                putchar(".:-=+*#%@"[(int)(d * 5.0f)]);
-            }
-            else{
-                putchar(' ');
-            }
-        }
-        putchar('\n');delay();
-    }
+    heart();
 
     spacebig();
 
@@ -269,7 +247,7 @@ int main()
     putchar('\t');
     char end=getchar();
     if(end=='#'){
-        dot_doge();
+        //dot_doge();
         exit(0);
         return 0;
     }
