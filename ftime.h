@@ -29,14 +29,7 @@ int yeartype(int a)//判断是否闰年，返回值为一年中的天数
 }
 void delay()
 {
-    int i,j,k,t=300;
-    for(i=0;i<t;i++){
-        for(j=0;j<t;j++){
-            for(k=0;k<t;k++){
-                //null
-            }
-        }
-    }
+    Sleep(35);
 }
 void loop()
 {
@@ -49,9 +42,9 @@ void  cutdown()
 {
     spacebig();
     dot_3();
-    spacesmall();
+    spacebig();
     dot_2();
-    spacesmall();
+    spacebig();
     dot_1();
 }
 

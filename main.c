@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<string.h>
 #include<time.h>
+#include <Windows.h>
+
 
 #include"text.h"
 #include"textuality.h"
@@ -17,6 +19,7 @@ int main()
 
     text_start();//开头的文本
 
+    putchar('\t');
     system("pause");//start
 
 
@@ -64,11 +67,15 @@ int main()
         int sec;
     }love;
 
+
 //! Identify the moment we fall in love with each other
+
     love.year=2018;love.mon=1;love.day=1;
     love.hour=0;love.min=10;love.sec=0;
 
+
 //! 计算love time的时间戳
+
     //int time_start=timestamp(love);
     //printf("%d",time_start);
 
@@ -211,6 +218,8 @@ int main()
     text_mid();//中间的文本
 
     spacesmall();
+
+    putchar('\t');
     system("pause");//continue
 
     spacesmall();
@@ -257,9 +266,11 @@ int main()
 
     spacesmall();
 
+    putchar('\t');
     char end=getchar();
-    if(end=='!'){
+    if(end=='#'){
         dot_doge();
+        exit(0);
         return 0;
     }
     else{

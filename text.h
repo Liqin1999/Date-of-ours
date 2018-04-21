@@ -35,8 +35,6 @@ void text_mid()
     fp(text);
     strcpy(text,"\tSo I will do my best to marry you!\n");
     fp(text);
-    strcpy(text,"\n\tPress to continue. :)\n");
-    fp(text);
 }
 
 //!½áÎ²ÎÄ±¾
@@ -60,8 +58,9 @@ void text_end()
     fp(text);
     strcpy(text,"\tBut the love between us is never faded!\n\n");
     fp(text);
-    strcpy(text,"\tPress Enter twice to see again.\n");
+
+    strcpy(text,"\n\tPress Enter twice to see again.\n");
     fp(text);
-    strcpy(text,"\tPress '!' in English and Enter to close me ;-)\n");
+    strcpy(text,"\n\tPress '#' and Enter to close me ;-)\n");
     fp(text);
 }
