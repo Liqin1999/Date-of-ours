@@ -67,7 +67,7 @@ int main()
 //! Identify the moment we fall in love with each other
 
     love.year=2018;love.mon=1;love.day=1;
-    love.hour=0;love.min=10;love.sec=0;
+    love.hour=0;love.min=0;love.sec=0;
 
 
 //! 计算love time的时间戳
@@ -124,16 +124,17 @@ int main()
 
     //计算月数
     last.mon=p->tm_mon-love.mon+1;
-    if(last.year>0){
+    for(i=last.year;i>0;i--){//'i' is years of our love continue
         last.mon+=last.year*12;
     }
 
     //计算天数
     int days,hundreds;
-    days=yeartype(1900+p->tm_year);//days变量运算，判断是否闰年
+    //days=yeartype(1900+p->tm_year);
+    //days变量运算，判断是否闰年
     last.day=p->tm_yday+1;//!算法局限，补上差的一天
-    if(last.year>0){
-        last.day+=last.year*days;//引入变量days=365 or days=366，分别计算平年闰年的天数
+    for(i=1900+p->tm_year/*now*/;i-love.year>0;i--){//'i' is years of now, and self--
+        last.day+=yeartype(i-1);//引入变量days=365 or days=366，分别计算平年闰年的天数
     }
     hundreds=last.day/100;//计算第几个一百天
 
@@ -176,12 +177,17 @@ int main()
     fp(text);
     for(i=0;i<3;i++){
         putchar('.');
-        loop();
+        delay();
     }
 
     loop();
 
     spacesmall();
+    if(last.year<0){
+        printf("\tError!Break now!\n");
+        system("pause");
+        exit(0);
+    }
     if(last.year==0){
         strcpy(text,"\tLess than 1 year\n");
         fp(text);
