@@ -17,8 +17,8 @@ void text_start()
     fp(text);
     strcpy(text,"\tand press any key to star our stories ;)\n");
     fp(text);
-    strcpy(text,"\n\t( Press 'Windows + up' or click that bottom to Maximize the window)\n");
-    fp(text);
+    //strcpy(text,"\n\t( Press 'Windows + up' or click that bottom to Maximize the window)\n");
+    //fp(text);
     spacesmall();
     delay();
     strcpy(text,"\tQin:I see and I've been ready ;)\n\n");
@@ -59,9 +59,9 @@ void text_end()
     strcpy(text,"\tBut the love between us is never faded!\n\n");
     fp(text);
 
-    strcpy(text,"\n\tPress Enter twice to see again.\n");
+    strcpy(text,"\n\t>Press Enter to see again.\n");
     fp(text);
-    strcpy(text,"\n\tPress '#' and Enter to close me ;-)\n");
+    strcpy(text,"\t>Press '#' and Enter to close me ;-)\n");
     fp(text);
 }
 

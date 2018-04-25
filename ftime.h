@@ -38,7 +38,7 @@ int yeartype(int a)//判断是否闰年，返回值为一年中的天数
 }
 void delay()
 {
-    //Sleep(35);
+    Sleep(30);
 }
 void loop()
 {

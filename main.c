@@ -57,6 +57,7 @@ int main()
     struct lovetime{
         int year;
         int mon;
+        int week;
         int day;
         int hour;
         int min;
@@ -67,14 +68,7 @@ int main()
 //! Identify the moment we fall in love with each other
 
     love.year=2018;love.mon=1;love.day=1;
-    love.hour=0;love.min=0;love.sec=0;
-
-
-//! 计算love time的时间戳
-
-    //int time_start=timestamp(love);
-    //printf("%d",time_start);
-
+    love.hour=0;love.min=38;love.sec=0;
 
 
 /*show the time our fall in love*/
@@ -90,11 +84,11 @@ int main()
     printf(" %d秒",love.sec);delay();
     spacesmall();
 
-	/*
-	** 此函数获得的tm结构体的时间，是已经进行过时区转化为本地时间
-    ** p = gmtime(&timep);
-	** 把日期和时间转换为格林威治(GMT)时间的函数
-	*/
+/*
+** 此函数获得的tm结构体的时间，是已经进行过时区转化为本地时间
+** p = gmtime(&timep);
+** 把日期和时间转换为格林威治(GMT)时间的函数
+*/
 	strcpy(text,"\nNow the time of this moment is:\n\n");
 	fp(text);delay();
 
@@ -118,7 +112,7 @@ int main()
     printf(" %d秒", p->tm_sec);delay();
     printf("\tIsdst: %d\t", p->tm_isdst);//夏令时
 
-/*Calculating dates*/
+//!Calculating dates
     struct lovetime last;
     last.year=p->tm_year-love.year+1900;
 
@@ -132,11 +126,14 @@ int main()
     int days,hundreds;
     //days=yeartype(1900+p->tm_year);
     //days变量运算，判断是否闰年
-    last.day=p->tm_yday+1;//!算法局限，补上差的一天
+    last.day=p->tm_yday;//!算法局限，求精按从零开始
     for(i=1900+p->tm_year/*now*/;i-love.year>0;i--){//'i' is years of now, and self--
         last.day+=yeartype(i-1);//引入变量days=365 or days=366，分别计算平年闰年的天数
     }
     hundreds=last.day/100;//计算第几个一百天
+
+    //计算周数
+    last.week=last.day/7;
 
     //计算小时
     if(p->tm_hour-love.hour<0){
@@ -197,8 +194,11 @@ int main()
     }
     delay();
     printf("\t%d\tmonths\n",last.mon);delay();
-    printf("\t%d\tdays\n",last.day);delay();
+    printf("\t%d\tweeks\n",last.week);delay();
+    printf("\t%d\tdays\n",last.day+1);delay();//按照常人的思维，天数从1开始
+    putchar('\n');
     printf("\t%d\thours\n",last.hour);delay();
+    printf("\t%d\tminutes\n",last.min);delay();
     printf("\t%d\tseconds\n",last.sec);delay();
     spacesmall();
 
@@ -208,9 +208,12 @@ int main()
     spacesmall();
     printf("\t这是我们的第%d个一百天\n",hundreds);delay();
     printf("\t距离下一个一百天还有%d天\n",(hundreds+1)*100-last.day);//距离下一个一百天还有多少天
-    if(last.day+20>=(hundreds+1)*days){//如果即将到达下一个一百天，就输出提示信息
-        printf("\t//马上就是第%d个一百天啦 (*≧︶≦))(￣▽￣* )ゞ\n",hundreds+1);delay();
+
+    //如果即将到达下一个一百天，就输出提示信息
+    if(last.day+25>=(hundreds+1)*100){
+        printf("\n\t//马上就是第%d个一百天啦 (*≧︶≦))(￣▽￣* )ゞ\n",hundreds+1);delay();
     }
+
     spacesmall();
 
     line();
@@ -251,7 +254,9 @@ int main()
     spacesmall();
 
     putchar('\t');
+    printf("等你选择:");
     char end=getchar();
+    putchar('\n');
     if(end=='#'){
         //dot_doge();
         exit(0);
