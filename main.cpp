@@ -1,60 +1,20 @@
-#include<stdio.h>
-#include<string.h>
-#include<time.h>
-#include <Windows.h>
+#include <iostream>
+#include <string.h>
+#include <time.h>
+#include <windows.h>
+#include <stdio.h>
 
-#include"text.h"
-#include"textuality.h"
-#include"ftime.h"
-#include"dotpoints.h"
+#include "ftime.h"
+#include "textuality.h"
+
+using namespace std;
 
 int main()
 {
-    int i;
-    char text[50];
-
-
-//!å±•ç¤ºå¼€å¤´ä¿¡æ¯
-
-    text_start();//å¼€å¤´çš„æ–‡æœ¬
-
-    putchar('\t');
-    system("pause");//start
-
-
-//!å¼•ç”¨å‡½æ•°ç‰¹æ•ˆè¾“å‡ºå­—ç¬¦å›¾æ¡ˆ
-
-    cutdown();
-    spacebig();
-    dot_dear();/*Print "Dear"*/
-    spacesmall();
-    dot_li();/*Print "Li"*/
-    spacesmall();
-    dot_qin();/*Print "Qin"*/
-    spacebig();
-
-    /*Print "I LOVE YOU"*/
-
-
-    /*Print "See here"*/
-    dot_see_here();
-    spacesmall();
-
-    /*Print "â†“ â†“ â†“"*/
-    for(i=0;i<2;i++){
-        dot_down();
-        spacesmall();
-    }
-    spacebig();
-
-    line();
-
-/**/
-//!å¼€å§‹å±•ç¤ºä¿¡æ¯
-/**/
 
 /*Identify struct of our love*/
-    struct lovetime{
+    class lovetime{
+    public:
         int year;
         int mon;
         int week;
@@ -62,32 +22,39 @@ int main()
         int hour;
         int min;
         int sec;
-    }love;
 
+    private:
+        //
+
+    };
 
 //! Identify the moment we fall in love with each other
 
+    class lovetime love;
     love.year=2018;love.mon=1;love.day=1;
     love.hour=0;love.min=38;love.sec=0;
 
 
 /*show the time our fall in love*/
+    int i;
+    char text[50];
     spacesmall();
     strcpy(text,"The time we have been boyfriend/girlfriend is:\n\n");
     fp(text);
-    printf("\t%då¹´\t",love.year);delay();
-    printf("%dæœˆ",love.mon);delay();
-    printf("%dæ—¥",love.day);delay();
+    printf("\t%dÄê\t",love.year);delay();
+    //cout<< <<endl;
+    printf("%dÔÂ",love.mon);delay();
+    printf("%dÈÕ",love.day);delay();
     putchar('\n');delay();
-    printf("\t%dç‚¹",love.hour);delay();
-    printf(" %dåˆ†",love.min);delay();
-    printf(" %dç§’",love.sec);delay();
+    printf("\t%dµã",love.hour);delay();
+    printf(" %d·Ö",love.min);delay();
+    printf(" %dÃë",love.sec);delay();
     spacesmall();
 
 /*
-** æ­¤å‡½æ•°è·å¾—çš„tmç»“æ„ä½“çš„æ—¶é—´ï¼Œæ˜¯å·²ç»è¿›è¡Œè¿‡æ—¶åŒºè½¬åŒ–ä¸ºæœ¬åœ°æ—¶é—´
+** ´Ëº¯Êı»ñµÃµÄtm½á¹¹ÌåµÄÊ±¼ä£¬ÊÇÒÑ¾­½øĞĞ¹ıÊ±Çø×ª»¯Îª±¾µØÊ±¼ä
 ** p = gmtime(&timep);
-** æŠŠæ—¥æœŸå’Œæ—¶é—´è½¬æ¢ä¸ºæ ¼æ—å¨æ²»(GMT)æ—¶é—´çš„å‡½æ•°
+** °ÑÈÕÆÚºÍÊ±¼ä×ª»»Îª¸ñÁÖÍşÖÎ(GMT)Ê±¼äµÄº¯Êı
 */
 	strcpy(text,"\nNow the time of this moment is:\n\n");
 	fp(text);delay();
@@ -97,45 +64,45 @@ int main()
     time(&timep);
     p =localtime(&timep);
 
-    printf("\t%då¹´\t", 1900+p->tm_year);delay();
-    printf("%dæœˆ", 1+p->tm_mon);delay();
-    printf("%dæ—¥", p->tm_mday);delay();
+    printf("\t%dÄê\t", 1900+p->tm_year);delay();
+    printf("%dÔÂ", 1+p->tm_mon);delay();
+    printf("%dÈÕ", p->tm_mday);delay();
 
-    int w=p->tm_wday;//å‡½æ•°ç¡®å®šè¾“å‡ºå‘¨å‡ ï¼Œè‹±æ–‡å•è¯
+    int w=p->tm_wday;//º¯ÊıÈ·¶¨Êä³öÖÜ¼¸£¬Ó¢ÎÄµ¥´Ê
     weekday(w);delay();
 
     putchar('\n');delay();
-    printf("\tä»Šå¹´çš„ç¬¬ %då¤©\t", p->tm_yday+1);delay();//!è¿™ä¸€å¹´çš„ç¬¬å‡ å¤©ï¼Œç®—æ³•å±€é™ï¼Œè¡¥ä¸Šå·®çš„ä¸€å¤©
+    printf("\t½ñÄêµÄµÚ %dÌì\t", p->tm_yday+1);delay();//!ÕâÒ»ÄêµÄµÚ¼¸Ìì£¬Ëã·¨¾ÖÏŞ£¬²¹ÉÏ²îµÄÒ»Ìì
     putchar('\n');delay();
-    printf("\t%dç‚¹", p->tm_hour);delay();
-    printf(" %dåˆ†", p->tm_min);delay();
-    printf(" %dç§’", p->tm_sec);delay();
-    printf("\tIsdst: %d\t", p->tm_isdst);//å¤ä»¤æ—¶
+    printf("\t%dµã", p->tm_hour);delay();
+    printf(" %d·Ö", p->tm_min);delay();
+    printf(" %dÃë", p->tm_sec);delay();
+    printf("\tIsdst: %d\t", p->tm_isdst);//ÏÄÁîÊ±
 
 //!Calculating dates
     struct lovetime last;
     last.year=p->tm_year-love.year+1900;
 
-    //è®¡ç®—æœˆæ•°
+    //¼ÆËãÔÂÊı
     last.mon=p->tm_mon-love.mon+1;
     for(i=last.year;i>0;i--){//'i' is years of our love continue
         last.mon+=last.year*12;
     }
 
-    //è®¡ç®—å¤©æ•°
-    int days,hundreds;
+    //¼ÆËãÌìÊı
+    int hundreds;
     //days=yeartype(1900+p->tm_year);
-    //dayså˜é‡è¿ç®—ï¼Œåˆ¤æ–­æ˜¯å¦é—°å¹´
-    last.day=p->tm_yday;//!ç®—æ³•å±€é™ï¼Œæ±‚ç²¾æŒ‰ä»é›¶å¼€å§‹
+    //days±äÁ¿ÔËËã£¬ÅĞ¶ÏÊÇ·ñÈòÄê
+    last.day=p->tm_yday;//!Ëã·¨¾ÖÏŞ£¬Çó¾«°´´ÓÁã¿ªÊ¼
     for(i=1900+p->tm_year/*now*/;i-love.year>0;i--){//'i' is years of now, and self--
-        last.day+=yeartype(i-1);//å¼•å…¥å˜é‡days=365 or days=366ï¼Œåˆ†åˆ«è®¡ç®—å¹³å¹´é—°å¹´çš„å¤©æ•°
+        last.day+=yeartype(i-1);//ÒıÈë±äÁ¿days=365 or days=366£¬·Ö±ğ¼ÆËãÆ½ÄêÈòÄêµÄÌìÊı
     }
-    hundreds=last.day/100;//è®¡ç®—ç¬¬å‡ ä¸ªä¸€ç™¾å¤©
+    hundreds=last.day/100;//¼ÆËãµÚ¼¸¸öÒ»°ÙÌì
 
-    //è®¡ç®—å‘¨æ•°
+    //¼ÆËãÖÜÊı
     last.week=last.day/7;
 
-    //è®¡ç®—å°æ—¶
+    //¼ÆËãĞ¡Ê±
     if(p->tm_hour-love.hour<0){
         last.hour=(p->tm_hour+24-love.hour)+(last.day-1)*24;
     }
@@ -143,7 +110,7 @@ int main()
         last.hour=(p->tm_hour-love.hour)+last.day*24;
     }
 
-    //è®¡ç®—åˆ†é’Ÿ
+    //¼ÆËã·ÖÖÓ
     if(p->tm_min-love.min<0){
         last.min=(p->tm_min+60-love.min)+(last.hour-1)*60;
     }
@@ -151,7 +118,7 @@ int main()
         last.min=(p->tm_min-love.min)+last.hour*60;
     }
 
-    //è®¡ç®—ç§’æ•°
+    //¼ÆËãÃëÊı
     if(p->tm_sec-love.sec<0){
         last.sec=(p->tm_sec+60-love.sec)+(last.min-1)*60;
     }
@@ -169,17 +136,13 @@ int main()
     fp(text);
     spacesmall();
     delay();
-    //printf("\tcaculating");
     strcpy(text,"\tCaculating\0");
     fp(text);
     for(i=0;i<3;i++){
         putchar('.');
         delay();
     }
-
-    loop();
-
-    spacesmall();
+    cout<<"\n"<<endl;
     if(last.year<0){
         printf("\tError!Break now!\n");
         system("pause");
@@ -195,7 +158,7 @@ int main()
     delay();
     printf("\t%d\tmonths\n",last.mon);delay();
     printf("\t%d\tweeks\n",last.week);delay();
-    printf("\t%d\tdays\n",last.day+1);delay();//æŒ‰ç…§å¸¸äººçš„æ€ç»´ï¼Œå¤©æ•°ä»1å¼€å§‹
+    printf("\t%d\tdays\n",last.day+1);delay();//°´ÕÕ³£ÈËµÄË¼Î¬£¬ÌìÊı´Ó1¿ªÊ¼
     putchar('\n');
     printf("\t%d\thours\n",last.hour);delay();
     printf("\t%d\tminutes\n",last.min);delay();
@@ -206,65 +169,14 @@ int main()
     strcpy(text,"What's more...\n");
     fp(text);
     spacesmall();
-    printf("\tè¿™æ˜¯æˆ‘ä»¬çš„ç¬¬%dä¸ªä¸€ç™¾å¤©\n",hundreds);delay();
-    printf("\tè·ç¦»ä¸‹ä¸€ä¸ªä¸€ç™¾å¤©è¿˜æœ‰%då¤©\n",(hundreds+1)*100-last.day);//è·ç¦»ä¸‹ä¸€ä¸ªä¸€ç™¾å¤©è¿˜æœ‰å¤šå°‘å¤©
+    printf("\tÕâÊÇÎÒÃÇµÄµÚ%d¸öÒ»°ÙÌì\n",hundreds);delay();
+    printf("\t¾àÀëÏÂÒ»¸öÒ»°ÙÌì»¹ÓĞ%dÌì\n",(hundreds+1)*100-last.day);//¾àÀëÏÂÒ»¸öÒ»°ÙÌì»¹ÓĞ¶àÉÙÌì
 
-    //å¦‚æœå³å°†åˆ°è¾¾ä¸‹ä¸€ä¸ªä¸€ç™¾å¤©ï¼Œå°±è¾“å‡ºæç¤ºä¿¡æ¯
+    //Èç¹û¼´½«µ½´ïÏÂÒ»¸öÒ»°ÙÌì£¬¾ÍÊä³öÌáÊ¾ĞÅÏ¢
     if(last.day+25>=(hundreds+1)*100){
-        printf("\n\t//é©¬ä¸Šå°±æ˜¯ç¬¬%dä¸ªä¸€ç™¾å¤©å•¦ (*â‰§ï¸¶â‰¦))(ï¿£â–½ï¿£* )ã‚\n",hundreds+1);delay();
+        printf("\n\t//ÂíÉÏ¾ÍÊÇµÚ%d¸öÒ»°ÙÌìÀ² (*¨R¦á¨Q))(£ş¨Œ£ş* )©g\n",hundreds+1);delay();
     }
 
-    spacesmall();
-
-    line();
-    spacesmall();
-
-    text_mid();//ä¸­é—´çš„æ–‡æœ¬
-
-    spacesmall();
-
-    putchar('\t');
-    system("pause");//continue
-
-    spacesmall();
-    line();
-
-/*Print "Will"*/
-/*Print "You"*/
-/*Print "Marry"*/
-/*Print "Me"*/
-/*Print '?'*/
-
-/*Print "POSTED"*/
-/*Print "BY"*/
-/*Print "YOUR"*/
-/*Print "DEAR"*/
-/*Print "ER QUE"*/
-
-    spacesmall();
-
-
-//!æ‰“å°çˆ±å¿ƒ
-    heart();
-
-    spacebig();
-
-    text_end();//ç»“å°¾æ–‡æœ¬
-
-    spacesmall();
-
-    putchar('\t');
-    printf("ç­‰ä½ é€‰æ‹©:");
-    char end=getchar();
-    putchar('\n');
-    if(end=='#'){
-        //dot_doge();
-        exit(0);
-        return 0;
-    }
-    else{
-        line();
-        spacesmall();
-        return main();
-    }
+    system("pause");
+    return 0;
 }

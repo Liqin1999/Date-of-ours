@@ -38,23 +38,7 @@ int yeartype(int a)//判断是否闰年，返回值为一年中的天数
 }
 void delay()
 {
-    Sleep(30);
-}
-void loop()
-{
-    int i;
-    for(i=0;i<5;i++){
-        delay();
-    }
-}
-void  cutdown()
-{
-    spacebig();
-    dot_3();
-    spacebig();
-    dot_2();
-    spacebig();
-    dot_1();
+    Sleep(10);
 }
 
 //int timestamp(struct a)
