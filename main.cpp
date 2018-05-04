@@ -4,16 +4,9 @@
 #include <windows.h>
 #include <stdio.h>
 
-#include "ftime.h"
-#include "textuality.h"
-
 using namespace std;
 
-int main()
-{
-
-/*Identify struct of our love*/
-    class lovetime{
+class lovetime{
     public:
         int year;
         int mon;
@@ -26,7 +19,53 @@ int main()
     private:
         //
 
-    };
+};
+void delay()
+{
+    Sleep(20);
+}
+void spacesmall()
+{
+    int i;
+    for(i=0;i<3;i++){
+        putchar('\n');
+        delay();
+    }
+}
+void fp(char text[50])
+{
+    int i;
+    for(i=0;text[i]!='\0';i++){
+        printf("%c",text[i]);
+        delay();
+    }
+}
+int yeartype(int a)//判断是否闰年，返回值为一年中的天数
+{
+    int n;
+    if(  (a%400==0) || (a%4==0&&a%100!=0) ){
+        n=366;
+    }
+    else{
+        n=365;
+    }
+    return n;
+}
+void weekday(int temp)
+{
+    switch(temp){
+        case 0:cout<<"\t周日/Sunday";break;
+        case 1:cout<<"\t周一/Monday";break;
+        case 2:cout<<"\t周二/Tuesday";break;
+        case 3:cout<<"\t周三/Wednesday";break;
+        case 4:cout<<"\t周四/Thursday";break;
+        case 5:cout<<"\t周五/Friday";break;
+        case 6:cout<<"\t周六/Saturday";break;
+    }
+}
+
+int main()
+{
 
 //! Identify the moment we fall in love with each other
 
@@ -38,17 +77,14 @@ int main()
 /*show the time our fall in love*/
     int i;
     char text[50];
+
     spacesmall();
-    strcpy(text,"The time we have been boyfriend/girlfriend is:\n\n");
+    strcpy(text,"The time we have been boyfriend/girlfriend is:");
     fp(text);
-    printf("\t%d年\t",love.year);delay();
-    //cout<< <<endl;
-    printf("%d月",love.mon);delay();
-    printf("%d日",love.day);delay();
-    putchar('\n');delay();
-    printf("\t%d点",love.hour);delay();
-    printf(" %d分",love.min);delay();
-    printf(" %d秒",love.sec);delay();
+    spacesmall();
+    cout<<"\t"<<love.year<<"年 "<<love.mon<<"月"<<love.day<<"日";delay();
+    cout<<" 元旦"<<endl;
+    cout<<"\t"<<love.hour<<"点"<<love.min<<"分"<<love.sec<<"秒"<<endl;delay();
     spacesmall();
 
 /*
@@ -64,20 +100,16 @@ int main()
     time(&timep);
     p =localtime(&timep);
 
-    printf("\t%d年\t", 1900+p->tm_year);delay();
-    printf("%d月", 1+p->tm_mon);delay();
-    printf("%d日", p->tm_mday);delay();
+    cout<<"\t"<<1900+p->tm_year<<"年\t"<<1+p->tm_mon<<"月"<<p->tm_mday<<"日";delay();
 
     int w=p->tm_wday;//函数确定输出周几，英文单词
     weekday(w);delay();
 
     putchar('\n');delay();
-    printf("\t今年的第 %d天\t", p->tm_yday+1);delay();//!这一年的第几天，算法局限，补上差的一天
+    cout<<"\t今年的第"<<p->tm_yday+1<<"天"<<endl;delay();//!这一年的第几天，算法局限，补上差的一天
     putchar('\n');delay();
-    printf("\t%d点", p->tm_hour);delay();
-    printf(" %d分", p->tm_min);delay();
-    printf(" %d秒", p->tm_sec);delay();
-    printf("\tIsdst: %d\t", p->tm_isdst);//夏令时
+    cout<<"\t"<<p->tm_hour<<"点 "<<p->tm_min<<"分 "<<p->tm_sec<<"秒"<<endl;delay();
+    cout<<"\tIsdst:\t"<<p->tm_isdst<<endl;//夏令时
 
 //!Calculating dates
     struct lovetime last;
@@ -134,17 +166,10 @@ int main()
     //printf("The time we fall in love lasts:\n\n");
     strcpy(text,"The period we fall in love lasts:\n");
     fp(text);
-    spacesmall();
-    delay();
-    strcpy(text,"\tCaculating\0");
-    fp(text);
-    for(i=0;i<3;i++){
-        putchar('.');
-        delay();
-    }
-    cout<<"\n"<<endl;
+    putchar('\n');delay();
+
     if(last.year<0){
-        printf("\tError!Break now!\n");
+        cout<<"\tError!Break now!\n"<<endl;
         system("pause");
         exit(0);
     }
@@ -153,30 +178,31 @@ int main()
         fp(text);
     }
     else{
-        printf("\t%d\tyears\n",last.year);
+        cout<<"\t"<<last.year<<"\tyears"<<endl;
     }
     delay();
-    printf("\t%d\tmonths\n",last.mon);delay();
-    printf("\t%d\tweeks\n",last.week);delay();
-    printf("\t%d\tdays\n",last.day+1);delay();//按照常人的思维，天数从1开始
+    cout<<"\t"<<last.mon<<"\tmonths"<<endl;delay();
+    cout<<"\t"<<last.week<<"\tweeks"<<endl;delay();
+    cout<<"\t"<<last.day+1<<"\tdays"<<endl;delay();//按照常人的思维，天数从1开始
     putchar('\n');
-    printf("\t%d\thours\n",last.hour);delay();
-    printf("\t%d\tminutes\n",last.min);delay();
-    printf("\t%d\tseconds\n",last.sec);delay();
+    cout<<"\t"<<last.hour<<"\thours"<<endl;delay();
+    cout<<"\t"<<last.min<<"\tminutes"<<endl;delay();
+    cout<<"\t"<<last.sec<<"seconds"<<endl;delay();
     spacesmall();
 
 //!Show more informations
     strcpy(text,"What's more...\n");
     fp(text);
-    spacesmall();
-    printf("\t这是我们的第%d个一百天\n",hundreds);delay();
-    printf("\t距离下一个一百天还有%d天\n",(hundreds+1)*100-last.day);//距离下一个一百天还有多少天
+    putchar('\n');
+    cout<<"\t这是我们的第"<<hundreds<<"个一百天"<<endl;delay();
+    cout<<"\t距离下一个一百天还有"<<(hundreds+1)*100-last.day<<"天"<<endl;//距离下一个一百天还有多少天
 
     //如果即将到达下一个一百天，就输出提示信息
     if(last.day+25>=(hundreds+1)*100){
-        printf("\n\t//马上就是第%d个一百天啦 (*≧︶≦))(￣▽￣* )ゞ\n",hundreds+1);delay();
+        cout<<"\n\t//马上就是第"<<hundreds+1<<"个一百天啦 (*≧︶≦))(￣▽￣* )ゞ"<<endl;delay();
     }
 
+    putchar('\n');
     system("pause");
     return 0;
 }
