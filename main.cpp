@@ -27,16 +27,15 @@ void delay()
 void spacesmall()
 {
     int i;
-    for(i=0;i<3;i++){
+    for(i=0;i<2;i++){
         putchar('\n');
-        delay();
     }
 }
 void fp(char text[50])
 {
     int i;
     for(i=0;text[i]!='\0';i++){
-        printf("%c",text[i]);
+        cout<<text[i];
         delay();
     }
 }
@@ -92,7 +91,7 @@ int main()
 ** p = gmtime(&timep);
 ** 把日期和时间转换为格林威治(GMT)时间的函数
 */
-	strcpy(text,"\nNow the time of this moment is:\n\n");
+	strcpy(text,"Now the time of this moment is:\n\n");
 	fp(text);delay();
 
     time_t timep;
@@ -104,7 +103,6 @@ int main()
 
     int w=p->tm_wday;//函数确定输出周几，英文单词
     weekday(w);delay();
-
     putchar('\n');delay();
     cout<<"\t今年的第"<<p->tm_yday+1<<"天"<<endl;delay();//!这一年的第几天，算法局限，补上差的一天
     putchar('\n');delay();
@@ -163,7 +161,6 @@ int main()
 //!Start nue dog
 /**/
     spacesmall();
-    //printf("The time we fall in love lasts:\n\n");
     strcpy(text,"The period we fall in love lasts:\n");
     fp(text);
     putchar('\n');delay();
