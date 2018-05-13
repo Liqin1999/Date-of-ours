@@ -2,7 +2,6 @@
 #include <string.h>
 #include <time.h>
 #include <windows.h>
-#include <stdio.h>
 
 using namespace std;
 
@@ -28,7 +27,7 @@ void spacesmall()
 {
     int i;
     for(i=0;i<2;i++){
-        putchar('\n');
+        cout<<endl;
     }
 }
 void fp(char text[50])
@@ -103,9 +102,9 @@ int main()
 
     int w=p->tm_wday;//函数确定输出周几，英文单词
     weekday(w);delay();
-    putchar('\n');delay();
+    cout<<endl;delay();
     cout<<"\t今年的第"<<p->tm_yday+1<<"天"<<endl;delay();//!这一年的第几天，算法局限，补上差的一天
-    putchar('\n');delay();
+    cout<<endl;delay();
     cout<<"\t"<<p->tm_hour<<"点 "<<p->tm_min<<"分 "<<p->tm_sec<<"秒"<<endl;delay();
     cout<<"\tIsdst:\t"<<p->tm_isdst<<endl;//夏令时
 
@@ -163,7 +162,7 @@ int main()
     spacesmall();
     strcpy(text,"The period we fall in love lasts:\n");
     fp(text);
-    putchar('\n');delay();
+    cout<<endl;delay();
 
     if(last.year<0){
         cout<<"\tError!Break now!\n"<<endl;
@@ -181,7 +180,7 @@ int main()
     cout<<"\t"<<last.mon<<"\tmonths"<<endl;delay();
     cout<<"\t"<<last.week<<"\tweeks"<<endl;delay();
     cout<<"\t"<<last.day+1<<"\tdays"<<endl;delay();//按照常人的思维，天数从1开始
-    putchar('\n');
+    cout<<endl;
     cout<<"\t"<<last.hour<<"\thours"<<endl;delay();
     cout<<"\t"<<last.min<<"\tminutes"<<endl;delay();
     cout<<"\t"<<last.sec<<"seconds"<<endl;delay();
@@ -190,7 +189,7 @@ int main()
 //!Show more informations
     strcpy(text,"What's more...\n");
     fp(text);
-    putchar('\n');
+    cout<<endl;
     cout<<"\t这是我们的第"<<hundreds<<"个一百天"<<endl;delay();
     cout<<"\t距离下一个一百天还有"<<(hundreds+1)*100-last.day<<"天"<<endl;//距离下一个一百天还有多少天
 
@@ -199,7 +198,7 @@ int main()
         cout<<"\n\t//马上就是第"<<hundreds+1<<"个一百天啦 (*≧︶≦))(￣▽￣* )ゞ"<<endl;delay();
     }
 
-    putchar('\n');
+    cout<<endl;
     system("pause");
     return 0;
 }
