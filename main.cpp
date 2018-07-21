@@ -21,7 +21,7 @@ class lovetime{
 };
 void delay()
 {
-    Sleep(20);
+    Sleep(10);
 }
 void spacesmall()
 {
@@ -71,6 +71,8 @@ int main()
     love.year=2018;love.mon=1;love.day=1;
     love.hour=0;love.min=38;love.sec=0;
 
+    class lovetime lastmeet;//上次见面时间
+    lastmeet.year=2018;lastmeet.mon=2;lastmeet.day=11;
 
 /*show the time our fall in love*/
     int i;
@@ -174,11 +176,11 @@ int main()
         fp(text);
     }
     else{
-        cout<<"\t"<<last.year<<"\tyears"<<endl;
+        cout<<"\t"<<last.year<<"+\tyears"<<endl;
     }
     delay();
-    cout<<"\t"<<last.mon<<"\tmonths"<<endl;delay();
-    cout<<"\t"<<last.week<<"\tweeks"<<endl;delay();
+    cout<<"\t"<<last.mon<<"+\tmonths"<<endl;delay();
+    cout<<"\t"<<last.week<<"+\tweeks"<<endl;delay();
     cout<<"\t"<<last.day+1<<"\tdays"<<endl;delay();//按照常人的思维，天数从1开始
     cout<<endl;
     cout<<"\t"<<last.hour<<"\thours"<<endl;delay();
